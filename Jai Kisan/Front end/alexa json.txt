@@ -1,0 +1,249 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "jaikisan",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "groundnut",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of groundnut",
+                        "tell about groundnut {name}",
+                        "say about groundnut {name}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "redgram",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "say about redgram {name}",
+                        "tell something about redgram {name}",
+                        "{name} of redgram"
+                    ]
+                },
+                {
+                    "name": "maize",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of maize",
+                        "say about maize {name}",
+                        "tell something about maize {name}"
+                    ]
+                },
+                {
+                    "name": "blackgram",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of blackgram",
+                        "say about blackgram {name}",
+                        "tell something about blackgram {name}"
+                    ]
+                },
+                {
+                    "name": "ragi",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of ragi",
+                        "say about ragi {name}",
+                        "tell something about ragi {name}"
+                    ]
+                },
+                {
+                    "name": "tobacco",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of tobacco",
+                        "say about tobacco {name}",
+                        "tell something about tobacco {name}"
+                    ]
+                },
+                {
+                    "name": "cotton",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of cotton",
+                        "say about cotton {name}",
+                        "tell something about cotton {name}"
+                    ]
+                },
+                {
+                    "name": "mirchi",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of mirchi",
+                        "say about mirchi {name}",
+                        "tell something about mirchi {name}"
+                    ]
+                },
+                {
+                    "name": "paddy",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of paddy",
+                        "say about paddy {name}",
+                        "tell something about paddy {name}"
+                    ]
+                },
+                {
+                    "name": "greengram",
+                    "slots": [
+                        {
+                            "name": "name",
+                            "type": "name"
+                        }
+                    ],
+                    "samples": [
+                        "{name} of greengram",
+                        "say about greengram {name}",
+                        "tell something about greengram {name}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "name",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "fertilizers"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "details"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "diseases"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pesticide"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pesticides"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

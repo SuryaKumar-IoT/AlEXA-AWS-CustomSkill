@@ -1,0 +1,375 @@
+from __future__ import print_function
+
+
+# --------------- Helpers that build all of the responses ----------------------
+
+def build_speechlet_response(title, output, reprompt_text, should_end_session):
+    return {
+        'outputSpeech': {
+            'type': 'PlainText',
+            'text': output
+        },
+        'card': {
+            'type': 'Simple',
+            'title': "SessionSpeechlet - " + title,
+            'content': "SessionSpeechlet - " + output
+        },
+        'reprompt': {
+            'outputSpeech': {
+                'type': 'PlainText',
+                'text': reprompt_text
+            }
+        },
+        'shouldEndSession': should_end_session
+    }
+
+
+def build_response(session_attributes, speechlet_response):
+    return {
+        'version': '1.0',
+        'sessionAttributes': session_attributes,
+        'response': speechlet_response
+    }
+
+
+# --------------- Functions that control the skill's behavior ------------------
+
+def get_welcome_response():
+    """ If we wanted to initialize the session to have some attributes we could
+    add those here
+    """
+
+    session_attributes = {}
+    card_title = "Welcome"
+    speech_output = "Welcome to jaikisan chatbot, " \
+                    "How can i help you, "
+    # If the user either does not reply to the welcome message or says something
+    # that is not understood, they will be prompted again with this text.
+    reprompt_text = "Please tell me how can i help you "
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+
+def handle_session_end_request():
+    card_title = "Session Ended"
+    speech_output = "Thank you for trying jaikisan chatbot" \
+                    "Have a nice day! "
+    # Setting this to true ends the session and exits the skill.
+    should_end_session = True
+    return build_response({}, build_speechlet_response(
+        card_title, speech_output, None, should_end_session))
+
+
+def set_groundnut_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="the mainly used pesticides are biotex,navakran,M45,basteen,antracol,punic acid,crebretak,Safe,maltic,kantaph plus,Black sulphur,Biophottas..kantaph plus,black sulphur are used to avoid infection for ground crop.s"
+        reprompt_text="I could not tell about groundnut"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases of groundnut crop Early Leaf Spot,Late Leaf Spot,Rust,Stem Rot,Bud Necrosis,Alternaria Leaf Disease."
+        reprompt_text="I could not tell about ground nut "
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="groundnut is a legume crop grown mainly for edible seeds,it takes 95 to 110 days for single crop ,the mainly used pesticides are biotex,navakran,M45,basteen,antracol,punic acid,crebretak,Safe,maltic,kantaph plus,Black sulphur,Biophottas..kantaph plus,black sulphur are used to avoid infection for ground crop."
+        reprompt_text="I could not tell about ground nut "
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_redgram_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="cattle manure 3 tones per hectare.nitrogen 40kg per hectare,Phosphorus pentoxide 80kg per hectare,warmy compost is for growing and strengthen the crop,custurd leaves and azadirrachta indica juice and sprayed."
+        reprompt_text="I could not tell about redgram"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases of redgram crop are Fusarium Wilt,Dry root Rot,Alternaria Leaf Spot,Powdery Mildew,Pigeon pea sterility Mosaic,Mungbean yellow mosaic virus"
+        reprompt_text="I could not tell about redgram "
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="Redgram is less suitable for tropics,most favourable temperature for redgram is 18 to 30 degree celicius,It grows 2 crops per year,pesticides  that are used  lime 500kg per hectare,"
+        reprompt_text="I could not tell about redgram "
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output ="pests are Gram pod borer,Blue butterfly,Grass blue butterfly,Plume moth,Spotted pod borer,Spiny pod borer,Field bean pod borer,Tur pod fly,Stem fly,Sterility mite"
+        reprompt_text="I could not tell about redgram "
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="fertilizers are Urea,Potassium nitrate,Ammonium nitrate,MAP,Ammonium sulphate,Potassium chloride,Calcium nitrate,Potassium nitrate,Magnesium nitrate,Potassium sulphate,ammonium nitrate"
+        reprompt_text="I could not tell about redgram"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_maize_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="cattle manure 3 tones per hectare.nitrogen 40kg per hectare,Phosphorus pentoxide 80kg per hectare,warmy compost is for growing and strengthen the crop,custurd leaves and azadirrachta indica juice and sprayed."
+        reprompt_text="I could not tell about maize"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases of maize crop are Downy mildew ,Crazy top,Leaf  Blight,Charcoal rot,Rust"
+        reprompt_text="I could not tell about maize"
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="Maize crop does well on a wide range of climatic condition,It grows in tropical region,it grows 2 crops per year,it takes 70 to 100 days for single crop,pesticides are cattle manure 5 tones per acre,uria 25kg,pottasium 25kg per acre,the income for single crop is 75 to 80 thousand."
+        reprompt_text="I could not tell about maize "
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output ="pests are Stem fly,Web worm,Stem borer,Ash weevil,Myllocerus sp,Pink stem borer,Leafhopper,Corn worm,Aphid or Plant lice,Ear head bug,Shoot bug."
+        reprompt_text="I could not tell about maize "
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="fertilizers Apply NPK fertilizers as per soil test recommendation as far as possible,If soil test recommendation is not available adopt a blanket recommendation of 135:62.5:50 NPK kg/ha, ZnSO4 at 37.5 kg/ha,"\
+                        "Apply quarter of the dose of N; full dose of P2O and K2O basally before sowing."
+        reprompt_text="I could not tell about maize "
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_blackgram_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output=",pesticides.... At starting stage pendimithalin  1 to 1.25 litres with 200 ltr water,penaxoprop mithyl 250 litres with 200 litres water"
+        reprompt_text="I could not tell about blackgram"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases of blackgram crop are Anthracnose,Rust,Cercospora leaf spot,Powdery Mildew,Dry Root Rot,Stem necrosis,Yellow Mosaic,Leaf Crinkle"
+        reprompt_text="I could not tell about blackgram "
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="Blackgram is better to grow in kharif season if it missed then third week of february or april,it grows 2 crops per year,it takes 180 days for single crop ."
+        reprompt_text="I could not tell about blackgram "
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output ="pests of blackgram are Gram pod borer,Spotted pod borer,Spiny pod borer,Blue butterfly,Grass blue butterfly,Bean Aphids, Leaf hopper,Pod bugs,Lab lab bug or Stink bug, Whitefly,Blister beetle"
+        reprompt_text="I could not tell about blackgram "
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="fertilizers of blackgram are Apply fertilizers basally before sowing,Rainfed : 12.5 kg N + 25 kg P2O5 + 12.5 kg K2O +10 kg S*/ha,Irrigated : 25 kg N + 50 kg P2O5 + 25 kg K2O + 20 kg S*/ha,Applied in the form of gypsum if Single Super Phospate is not applied as a source of phosphorus."
+        reprompt_text="I could not tell about blackgram "
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_ragi_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="pesticides of ragi are 0.1% carbendazin solution ,drip the root portion of finger millet seedling in the solution Azospirillum inoculats in 45 to 50 litres of for about 30 minutes"
+        reprompt_text="I could not tell about ragi"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases of ragi are blast,mosaic,Leaf Crinkle"
+        reprompt_text="I could not tell about ragi "
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="Ragi can grown in different seasons in different parts of the country,It also grown in winter season,"\
+                       "it grows 2 times per year,it takes 115 to 120 days for single crop,pesticides used are 0.1% carbendazin solution,Azospirillum inoculats 45 to 50 litres  of water for about 30 minutes."
+        reprompt_text="I could not tell about ragi "
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output ="pests of ragi are Pink stem bore,Earhead bug,Aphids,Root aphid,Cutworm,Grasshopper,Leaf folder,Earhead bug,White stem borer,Ragi leaf hopper,Yellow aphid."
+        reprompt_text="I could not tell about ragi"
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="fertilizers of ragi are Azospirillum brasilense (N fixing bacterium) and Aspergillus awamori (P solubilizing fungs) in 25 g/kg seed is beneficial."
+        reprompt_text="I could not tell about ragi"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_tobacco_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="Pesticides are 10% carbaryl at 20 to 25kg per acre,0.02% phosphamidan,parathion,methyl demeton etc.."
+        reprompt_text="I could not tell about tobacco"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases of tobacco are  leaf-eating caterpillar,stem borers,aphids etc.."
+        reprompt_text="I could not tell about tobacco"
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="The soils which are suitable for tobacco are Alluvial soils,loamy soils,grey to red soils,it supports temperature batween 20 and 30 degree celcius,"\
+                       "it must have 50 to 100cm annual Rainfall,it takes 90 to 120 days based on type,"
+        reprompt_text="I could not tell about tobacco"
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="Fertilizers are generic tomato and peper fertilizer,nitrogen,phophoric acid,calcium nitrate,bulldog soda."
+        reprompt_text="I could not tell about tobacco"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_cotton_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="pesticides that are used for cotton are  urea,organophosphate,Bipyridyium etc.."
+        reprompt_text="I could not tell about cotton"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases that can attack are Angular leaf spot or black arm disease,vascular wilt disease,boll rot disease,"
+        reprompt_text="I could not tell about cotton"
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="seed rate for cotton is 3 to 5kg per acre,sandy loan soil or loamy sand soils well suits for cotton,"\
+                       "It requires annual temperature of 20 to 28 degree celcius,Annual rainfall of 55  to 100 cm is ideal,it takes 180 to 200 days cotton takes to mature."
+        reprompt_text="I could not tell about cotton"
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output =" pests of cotton American boll worm,Pink bollworm,Spotted bollworms,Cotton Stem Weevil,Shoot weevil,Stem borer,Leaf roller,Tobacco Cutworm,Ash weevils,Leafhopper,Cotton aphid,Thrips,Whitefly,Red cotton bug,Dusky cotton bug,Mealy bugs"
+        reprompt_text="I could not tell about cotton"
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="fertilizers are N-P-K 20 10 20 fertilize,N-P-K 0 46 0,N-P-K 0 0 50,potassium nitrite,"
+        reprompt_text="I could not tell about cotton"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_mirchi_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="soap pesticides,botanical pesticides ,bacterium pesticides,synthetic pesticide etc.."
+        reprompt_text="I could not tell about mirchi"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases of mirchi crop are Bacterial leafspot,bacterial soft rot,chilli wit,grey mould,"
+        reprompt_text="I could not tell about mirchi"
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="It grows in many types of soils sandy to heavy clay it needs soil of PH627,"\
+                       "it requires temperature from 18 to 40 degree celcius and amount of rainfall 625 to 1500 mm,it takes 60 to 100 days for single crop based on type chilli,"
+        reprompt_text="I could not tell about mirchi"
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output ="pests are Chilli thrips,Green peach aphid,Tobacco cutworm,Gram caterpillar,Yellow mite"
+        reprompt_text="I could not tell about mirchi"
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="fertilizers of mirchi are tomoto fertilizers,compost etc.."
+        reprompt_text="I could not tell about mirchi"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_paddy_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="pesticides are copper sulphate,pentahydride,diflubenzoron,carbaryl."
+        reprompt_text="I could not tell about paddy"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output ="diseases are Brown spot,sheath rot,sheath blight,grain discolouration,leaf streak etc.."
+        reprompt_text="I could not tell about paddy"
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="Depending upon climate conditions and water availability rice is good in all seasons that are kharif,rabi,"\
+                       "Depending on type of rice and climate it take upto 160  days.costal alluvium,red sandy,mixed red and black and medium and shallow black,"\
+                       "Average temperature is between 20 to 27 celcius,annual rainfall between 175 to 300cm,"
+        reprompt_text="I could not tell about paddy"
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output ="pests are Thrips,Green leafhopper,Rice case worm,Paddy stemborer,Swarming caterpillar,Paddy stemborer,Gall midge,Swarming caterpillar,Rice skipper,Leaf folder(or)leaf roller,Rice horned caterpillar,Yellow hairy caterpillar,Grasshopper,Spiny beetle/Rice,hispa Whorl maggot."
+        reprompt_text="I could not tell about paddy"
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output ="fertilizers that are used Nitrogen,phosphorus and pottasium urea ,Anhydrous Ammonia,urea super etc.."
+        reprompt_text="I could not tell about paddy "
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+def set_greengram_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots']['name']['value'])
+    if "pesticides" == intent['slots']['name']['value']:
+        speech_output="pesticides are cypermethrin is sufficient."
+        reprompt_text="I could not tell about greengram"
+    elif "diseases" == intent['slots']['name']['value']:
+        speech_output =" Anthracnose,Rust,Cercospora leaf spot,Powdery Mildew,Dry Root RotStem necrosis,Yellow Mosaic,Leaf Crinkle"
+        reprompt_text="I could not tell about greengram"
+    elif "details" == intent['slots']['name']['value']:
+        speech_output ="Soils that are suits for greengram are Black cotton soil,sandy soils,well drained loamy to sandy loam soil,"\
+                       "climate conditions are warm,humid and temperature range of 25 to 35 degree celcius ."\
+                       "it takes 90 to 100days for single crop.nitrogen  5kg per acre,p2o5 16kg per acre"
+        reprompt_text="I could not tell about greengram"
+    elif "pests" == intent['slots']['name']['value']:
+        speech_output ="pests of greengram  are Gram pod borer,Spotted pod borer,Spiny pod borer,Blue butterfly,Grass blue butterfly,Bean Aphids, Leaf hopper,Pod bugs,Lab lab bug or Stink bug, Whitefly,Blister beetle"
+        reprompt_text="I could not tell about greengram"
+    elif "fertilizers" == intent['slots']['name']['value']:
+        speech_output = "N-P-K 25-50-25 kg / ha + 5 kg / ha of TN micro nutrient mixture"
+        reprompt_text="I could not tell about greengram"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+# --------------- Events ------------------
+
+def on_session_started(session_started_request, session):
+    """ Called when the session starts """
+
+    print("on_session_started requestId=" + session_started_request['requestId']
+          + ", sessionId=" + session['sessionId'])
+
+
+def on_launch(launch_request, session):
+    """ Called when the user launches the skill without specifying what they
+    want
+    """
+
+    print("on_launch requestId=" + launch_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+    # Dispatch to your skill's launch
+    return get_welcome_response()
+
+
+def on_intent(intent_request, session):
+    """ Called when the user specifies an intent for this skill """
+
+    print("on_intent requestId=" + intent_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+
+    intent = intent_request['intent']
+    intent_name = intent_request['intent']['name']
+
+    # Dispatch to your skill's intent handlers
+    if intent_name == "groundnut":
+        return set_groundnut_in_session(intent, session)
+    elif intent_name == "redgram":
+        return set_redgram_in_session(intent, session)
+    elif intent_name == "maize":
+        return set_maize_in_session(intent, session)
+    elif intent_name == "blackgram":
+        return set_blackgram_in_session(intent, session)
+    elif intent_name == "ragi":
+        return set_ragi_in_session(intent, session)
+    elif intent_name == "tobacco":
+        return set_tobacco_in_session(intent, session)
+    elif intent_name == "cotton":
+        return set_cotton_in_session(intent, session)
+    elif intent_name == "mirchi":
+        return set_mirchi_in_session(intent, session)
+    elif intent_name == "paddy":
+        return set_paddy_in_session(intent, session)
+    elif intent_name == "greengram":
+        return set_greengram_in_session(intent, session)
+    else:
+        raise ValueError("Invalid intent")
+
+
+def on_session_ended(session_ended_request, session):
+    """ Called when the user ends the session.
+
+    Is not called when the skill returns should_end_session=true
+    """
+    print("on_session_ended requestId=" + session_ended_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+    # add cleanup logic here
+
+
+# --------------- Main handler ------------------
+
+def lambda_handler(event, context):
+    """ Route the incoming request based on type (LaunchRequest, IntentRequest,
+    etc.) The JSON body of the request is provided in the event parameter.
+    """
+    print("event.session.application.applicationId=" +
+          event['session']['application']['applicationId'])
+
+    """
+    Uncomment this if statement and populate with your skill's application ID to
+    prevent someone else from configuring a skill that sends requests to this
+    function.
+    """
+    # if (event['session']['application']['applicationId'] !=
+    #         "amzn1.echo-sdk-ams.app.[unique-value-here]"):
+    #     raise ValueError("Invalid Application ID")
+
+    if event['session']['new']:
+        on_session_started({'requestId': event['request']['requestId']},
+                           event['session'])
+
+    if event['request']['type'] == "LaunchRequest":
+        return on_launch(event['request'], event['session'])
+    elif event['request']['type'] == "IntentRequest":
+        return on_intent(event['request'], event['session'])
+    elif event['request']['type'] == "SessionEndedRequest":
+        return on_session_ended(event['request'], event['session'])

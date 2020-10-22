@@ -1,0 +1,319 @@
+from __future__ import print_function
+import urllib as url
+
+request_name="http://www.madmaker.space/rakshak/d1mini.php?"
+p_id="Rakshak01_Chirala"
+p_name=""
+p_number=""
+p_aadhar=""
+p_type=""
+
+def build_speechlet_response(title, output, reprompt_text, should_end_session):
+    return {
+        'outputSpeech': {
+            'type': 'PlainText',
+            'text': output
+        },
+        'card': {
+            'type': 'Simple',
+            'title': "SessionSpeechlet - " + title,
+            'content': "SessionSpeechlet - " + output
+        },
+        'reprompt': {
+            'outputSpeech': {
+                'type': 'PlainText',
+                'text': reprompt_text
+            }
+        },
+        'shouldEndSession': should_end_session
+    }
+def build_response(session_attributes, speechlet_response):
+    return {
+        'version': '1.0',
+        'sessionAttributes': session_attributes,
+        'response': speechlet_response
+    }
+def get_welcome_response():
+    session_attributes = {}
+    card_title = "Welcome"
+    speech_output = "Welcome to the Rakshak Chat Bot " \
+                    "Please tell me," \
+                    "How can i help you ?"
+    reprompt_text = "Please tell me Something , i could not recognise"
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def handle_session_end_request():
+    card_title = "Session Ended"
+    speech_output = "Thank you from Rakshak Bot. " \
+                    "Have a nice day! "
+    # Setting this to true ends the session and exits the skill.
+    should_end_session = True
+    return build_response({}, build_speechlet_response(
+        card_title, speech_output, None, should_end_session))
+def set_contactinfo_in_session(intent,session):
+    session_attributes = {}
+    card_title = intent['name']
+    speech_output = "Help line Number for She Team 9490616555, "\
+                    "Dail 100," \
+                    "Dail 101"
+    reprompt_text = "Please tell me Something , i could not recognise"
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def set_acts_in_session(intent,session):
+    session_attributes = {}
+    card_title = intent['name']
+    speech_output ="The Arms Act 1959"\
+                    " Motor Vehicles, 1988"\
+                    " The Narcotic Drugs and Psychotropic Substances Act, 1985"\
+                    "The Information Technology ACT, 2008"\
+                    "Recent Supreme Court Judgment on 66 A of IT Act, 2008"\
+                    "The National Security ACT, 1980"\
+                    "The Wild Life (Protection) ACT, 1972"\
+                    "The Telegraph Wires (Unlawful Possession) ACT, 1950"\
+                    " The Electricity ACT 2003"\
+                    "The Immoral Traffic (Prevention) ACT 1956"\
+                    " Explosives ACT,1889"
+    reprompt_text = "Please tell me Something , i could not recognise"
+    should_end_session = False
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def set_sections_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print (intent['slots'])
+    if "144" ==intent['slots']['section']['value']:
+        speech_output ="Unlawful assembly armed with deadly weapon"
+        reprompt_text='I could not recognise please tell again...'
+    elif "124" ==intent['slots']['section']['value']:
+        speech_output ="Assaulting President,Governor,etc.,with intent to compel or restrain the exercise of any lawful power"
+        reprompt_text='I could not recognise please tell again...'
+    elif "121" ==intent['slots']['section']['value']:
+        speech_output ="Waging,or attempting to wage war,or abetting waging of war against the Government of India"
+        reprompt_text='I could not recognise please tell again...'
+    elif "147" ==intent['slots']['section']['value']:
+        speech_output ="Punishment for rioting"
+        reprompt_text='I could not recognise please tell again...'
+    elif "192" ==intent['slots']['section']['value']:
+        speech_output ="Fabricating false evidence"
+        reprompt_text='I could not recognise please tell again...'
+    elif "153A" ==intent['slots']['section']['value']:
+        speech_output ="Promoting enmity between different groups on grounds of religion, race, place of birth, residence, language, etc., and doing acts prejudicial to maintenance of harmony"
+        reprompt_text='I could not recognise please tell again...'
+    elif "209" ==intent['slots']['section']['value']:
+        speech_output ="Dishonest claims in court"
+        reprompt_text='I could not recognise please tell again...'
+    elif "300" ==intent['slots']['section']['value']:
+        speech_output ="murder"
+        reprompt_text='I could not recognise please tell again...'
+    elif "301" ==intent['slots']['section']['value']:
+        speech_output ="Culpable homicide by causing death of person other than person whose death was intended"
+        reprompt_text='I could not recognise please tell again...'
+    elif "304B" ==intent['slots']['section']['value']:
+        speech_output ="Dowry  death"
+        reprompt_text='I could not recognise please tell again...'
+    elif "340" ==intent['slots']['section']['value']:
+        speech_output ="Wrongful confinement"
+        reprompt_text='I could not recognise please tell again...'
+    elif "339" ==intent['slots']['section']['value']:
+        speech_output ="Wrongful restraint"
+        reprompt_text='I could not recognise please tell again...'
+    elif "358" ==intent['slots']['section']['value']:
+        speech_output ="Assault or criminal force on grave provocation"
+        reprompt_text='I could not recognise please tell again...'
+    elif "359" ==intent['slots']['section']['value']:
+        speech_output ="Kidnapping"
+        reprompt_text='I could not recognise please tell again...'
+    elif "378" ==intent['slots']['section']['value']:
+        speech_output ="Theft"
+        reprompt_text='I could not recognise please tell again...'
+    elif "390" ==intent['slots']['section']['value']:
+        speech_output ="Robbery"
+        reprompt_text='I could not recognise please tell again...'
+    elif "376D" ==intent['slots']['section']['value']:
+        speech_output ="Gang rape"
+        reprompt_text='I could not recognise please tell again...'
+    elif "14" ==intent['slots']['section']['value']:
+        speech_output ="child labour"
+        reprompt_text='I could not recognise please tell again...'
+    elif "all" ==intent['slots']['section']['value']:
+        speech_output="Here is the info about some sections  121 Waging,or attempting to wage war,or abetting waging of war against the Government of India,124	Assaulting President,Governor,etc.,with intent to compel or restrain the exercise of any lawful power,144	Unlawful assembly armed with deadly weapon,147	Punishment for rioting,153A	Promoting enmity between different groups on grounds of religion, race, place of birth, residence, language, etc., and doing acts prejudicial to maintenance of harmony,192	Fabricating false evidence,209	Dishonest claims in court,300	Murder,301	Culpable homicide by causing death of person other than person whose death was intended,304B Dowrydeath,339	Wrongful restraint,340 Wrongful confinement,358	Assault or criminal force on grave provocation"
+        reprompt_text="I could not recognise please ask again.."
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def set_queries_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print (intent['slots'])
+    if "complaint" ==intent['slots']['query']['value']:
+        speech_output ="Yes I can Register Complaint for You , Tell Me your name "
+        reprompt_text='I could not recognise please tell again...'
+    elif "details" ==intent['slots']['query']['value']:
+        speech_output ="Yes I can Provide every details you want "\
+                        ",You can Ask Me about Sections,helpline number ,Acts."
+        reprompt_text='I could not recognise please tell again...'
+    elif "information" ==intent['slots']['query']['value']:
+        speech_output ="Yes I can Provide every information you want "\
+                        ",You can Ask Me about Sections,helpline number ,Acts."
+        reprompt_text='I could not recognise please tell again...'
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def set_name_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    p_name=intent['slots']['person']['value']
+    global p_name
+    speech_output= "hello " +intent['slots']['person']['value'] + ", Good to hear You , Tell Me Your PhoneNumber in words "
+    reprompt_text="I could not recognise You ,please tell again"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def set_device_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    p_number=intent['slots']['device']['value']
+    global p_number
+    speech_output= "hello this is your contact number :" + intent['slots']['device']['value'] +",Please Tell Your Aadharcard Details in words for verification ?"
+    reprompt_text="I could not recognise You , please tell again"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def set_aadhar_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    p_aadhar=intent['slots']['adhar']['value']
+    print(len(p_aadhar))
+    global p_aadhar
+    if(len(p_aadhar)==12):
+        speech_output= "hello Here is your Aadhaar Details :" + intent['slots']['adhar']['value'] +",Please Tell About Your Complaint in short eg: Antiragging,theft?"
+        reprompt_text="I could not recognise You , please tell again"
+    else:
+        speech_output= "hello There is something wrong with your Aadhar Card ,Please Enter your aadhar details properly?"
+        reprompt_text="I could not recognise You , please tell again"
+    return  build_response(session_attributes, build_speechlet_response(
+       card_title, speech_output, reprompt_text, should_end_session))
+
+def set_case_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(p_id,p_name,p_number,p_aadhar)
+    p_type=intent['slots']['casee']['value']
+    a=url.urlopen(request_name+"p_id="+p_id+"&p_name="+p_name+"&p_number="+p_number+"&p_aadhar="+p_aadhar+"&p_type="+p_type)
+    speech_output= "hello Your Complaint is about to register under  :" + intent['slots']['casee']['value'] +" Case ,Our Team will Contact You as soon as Possible ,Thank You For Using Rakshak Bot "
+    reprompt_text="I could not recognise You ,please tell again"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def set_state_in_session(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    print(intent['slots'])
+    if 'andhra pradesh' or 'Andhra Pradesh' == intent['slots']['stateheadquarter']['value']:
+        speech_output="Amaravathi"
+        reprompt_text="I could not please try again"
+    else:
+        speech_output="I could not please try againi"
+        reprompt_text="I could not please try again"
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+def on_session_started(session_started_request, session):
+    """ Called when the session starts """
+
+    print("on_session_started requestId=" + session_started_request['requestId']
+          + ", sessionId=" + session['sessionId'])
+
+
+def on_launch(launch_request, session):
+    """ Called when the user launches the skill without specifying what they
+    want
+    """
+
+    print("on_launch requestId=" + launch_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+    # Dispatch to your skill's launch
+    return get_welcome_response()
+
+def on_intent(intent_request, session):
+    print("on_intent requestId=" + intent_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+
+    intent = intent_request['intent']
+    intent_name = intent_request['intent']['name']
+
+    # Dispatch to your skill's intent handlers
+    if intent_name == "sections":
+        return set_sections_in_session(intent, session)
+    elif intent_name == "acts":
+        return set_acts_in_session(intent, session)
+    elif intent_name == "name":
+        return set_name_in_session(intent, session)
+    elif intent_name == "cell":
+        return set_device_in_session(intent, session)
+    elif intent_name == "case":
+        return set_case_in_session(intent, session)
+    elif intent_name == "aadhar":
+        return set_aadhar_in_session(intent, session)
+    elif intent_name == "queries":
+        return set_queries_in_session(intent, session)
+    elif intent_name == "contactinfo":
+        return set_contactinfo_in_session(intent, session)
+    elif intent_name == "stateheadquarters":
+        return set_state_in_session(intent, session)
+    elif intent_name == "AMAZON.CancelIntent" or intent_name == "AMAZON.StopIntent":
+        return handle_session_end_request()
+    else:
+        raise ValueError("Invalid intent")
+
+
+def on_session_ended(session_ended_request, session):
+    """ Called when the user ends the session.
+
+    Is not called when the skill returns should_end_session=true
+    """
+    print("on_session_ended requestId=" + session_ended_request['requestId'] +
+          ", sessionId=" + session['sessionId'])
+    # add cleanup logic here
+
+
+# --------------- Main handler ------------------
+
+def lambda_handler(event, context):
+    """ Route the incoming request based on type (LaunchRequest, IntentRequest,
+    etc.) The JSON body of the request is provided in the event parameter.
+    """
+    print("event.session.application.applicationId=" +
+          event['session']['application']['applicationId'])
+
+    """
+    Uncomment this if statement and populate with your skill's application ID to
+    prevent someone else from configuring a skill that sends requests to this
+    function.
+    """
+    # if (event['session']['application']['applicationId'] !=
+    #         "amzn1.echo-sdk-ams.app.[unique-value-here]"):
+    #     raise ValueError("Invalid Application ID")
+
+    if event['session']['new']:
+        on_session_started({'requestId': event['request']['requestId']},
+                           event['session'])
+
+    if event['request']['type'] == "LaunchRequest":
+        return on_launch(event['request'], event['session'])
+    elif event['request']['type'] == "IntentRequest":
+        return on_intent(event['request'], event['session'])
+    elif event['request']['type'] == "SessionEndedRequest":
+        return on_session_ended(event['request'], event['session'])

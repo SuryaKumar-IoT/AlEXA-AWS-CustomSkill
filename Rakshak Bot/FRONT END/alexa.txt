@@ -1,0 +1,483 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "rakshakbot",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.MoreIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateSettingsIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PageDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollRightIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollDownIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollLeftIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ScrollUpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "sections",
+                    "slots": [
+                        {
+                            "name": "section",
+                            "type": "section"
+                        }
+                    ],
+                    "samples": [
+                        "all sections {section}",
+                        "few details about {section} section",
+                        "{section} sections",
+                        "tell about {section} sections",
+                        "section {section}",
+                        "{section} section",
+                        "say about {section} sections",
+                        "say about {section} section",
+                        "tell about {section} section"
+                    ]
+                },
+                {
+                    "name": "stateheadquarters",
+                    "slots": [
+                        {
+                            "name": "stateheadquarter",
+                            "type": "stateheadquarter"
+                        }
+                    ],
+                    "samples": [
+                        "where is the headquarters of {stateheadquarter}",
+                        "{stateheadquarter} headquarter",
+                        "where is the {stateheadquarter} headquarters present",
+                        "where the {stateheadquarter} is    headquarter  present",
+                        "what is the {stateheadquarter}  headquarter "
+                    ]
+                },
+                {
+                    "name": "contactinfo",
+                    "slots": [],
+                    "samples": [
+                        "emergency number",
+                        "toll free number",
+                        "helpline number"
+                    ]
+                },
+                {
+                    "name": "acts",
+                    "slots": [],
+                    "samples": [
+                        "tell some information about acts",
+                        "acts",
+                        "what are major acts",
+                        "what are minor acts",
+                        "what are the acts"
+                    ]
+                },
+                {
+                    "name": "queries",
+                    "slots": [
+                        {
+                            "name": "query",
+                            "type": "query"
+                        }
+                    ],
+                    "samples": [
+                        "file a {query}",
+                        "register {query}",
+                        "register a {query}",
+                        "take {query} from me",
+                        "can you give me {query}",
+                        "can you register me {query}"
+                    ]
+                },
+                {
+                    "name": "name",
+                    "slots": [
+                        {
+                            "name": "person",
+                            "type": "AMAZON.FirstName"
+                        }
+                    ],
+                    "samples": [
+                        "myself {person}",
+                        "i am {person}",
+                        "My name is {person}"
+                    ]
+                },
+                {
+                    "name": "cell",
+                    "slots": [
+                        {
+                            "name": "device",
+                            "type": "AMAZON.PhoneNumber"
+                        }
+                    ],
+                    "samples": [
+                        "my phone number {device}",
+                        "phone number {device}",
+                        "mobile number is {device}",
+                        "mobile number {device}",
+                        "my mobile number {device}",
+                        "my number is {device}",
+                        "number is {device}",
+                        "{device} is my contact number",
+                        "{device} is my phone number",
+                        "my phone number is {device}"
+                    ]
+                },
+                {
+                    "name": "aadhar",
+                    "slots": [
+                        {
+                            "name": "adhar",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "aadhar number is {adhar}",
+                        "aadhar number {adhar}",
+                        "my aadhar number is {adhar}",
+                        "this is my aadhar number {adhar}"
+                    ]
+                },
+                {
+                    "name": "case",
+                    "slots": [
+                        {
+                            "name": "casee",
+                            "type": "casee"
+                        }
+                    ],
+                    "samples": [
+                        "my case is about {casee}",
+                        "case is {casee}",
+                        "{casee}",
+                        "{casee} case"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "section",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "376D"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "14"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "390"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "378"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "359"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "358"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "339"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "340"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "304B"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "301"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "300"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "209"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "153A"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "192"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "147"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "144"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "124"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "121"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "all",
+                                "synonyms": [
+                                    "all sections",
+                                    "all section"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "stateheadquarter",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Odisha "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Nagaland "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mizoram "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Meghalaya"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Manipur \t"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Maharashtra"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Madhya Pradesh "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Kerala"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Karnataka"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jharkhand"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Jammu and Kashmir "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Himachal Pradesh "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Haryana "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Gujarat"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Goa "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Chhattisgarh \t"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bihar"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Assam \t"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Arunachal Pradesh "
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Andhra Pradesh "
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "query",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "details"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "information"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "complaint"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "casee",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "child labour"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "murder"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "eve teasing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ragging case"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "accident"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "sc st"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "rape"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "theft"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
